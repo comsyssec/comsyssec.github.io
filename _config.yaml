@@ -5,6 +5,8 @@ description: This is the website of the computer system security lab. (csslab) a
 header: images/background.jpg
 footer: images/background.jpg
 proofer: false
+baseurl: ""
+url: "https://comsyssec.github.io"
 
 # site social media and other links
 links:
