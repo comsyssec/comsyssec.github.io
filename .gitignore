@@ -86,3 +86,5 @@ dist/*
 *.csv
 *.parquet
 catboost_info
+
+_site/
