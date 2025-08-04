@@ -23,10 +23,26 @@ email: hwlee@kentech.ac.kr
 description: The official website for the computer system security lab. (csslab) at KENTECH
 baseurl: "/" # the subpath of your site, e.g. /blog
 url: "https://comsyssec.github.io" # the base hostname & protocol for your site, e.g. http://example.com
-github_username:  comsyssec
+github_username: comsyssec
 
 # Build settings
+markdown: kramdown
 theme: minima
+
+# Collections for easy management
+collections:
+  people:
+    output: true
+  publications:
+    output: true
+  research:
+    output: true
+  teaching:
+    output: true
+  gallery:
+    output: true
+
+# Plugins
 plugins:
   - jekyll-feed
 
