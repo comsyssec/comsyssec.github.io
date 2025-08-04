@@ -13,7 +13,6 @@ permalink: /publications/
       <strong>{{ pub.title }}</strong><br>
       {{ pub.authors }}<br>
       <em>{{ pub.venue }}</em>, {{ pub.year }}<br>
-      {{ pub.content | markdownify }}
     </li>
   {% endfor %}
 </ul>
