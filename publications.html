@@ -1,0 +1,43 @@
+---
+layout: default
+title: Publications
+permalink: /publications/
+---
+
+<h1>Publications</h1>
+
+{% assign pubs = site.publications %}
+
+{% assign types = pubs | map: "type" | uniq %}
+
+{% for type in types %}
+  <h2>
+    {% if type == "international" %} International Conferences/Journals
+    {% elsif type == "domestic" %} Domestic Conferences/Journals
+    {% else %} Others
+    {% endif %}
+  </h2>
+
+  {% assign ptypes = pubs | where: "type", type %}
+  {% assign years = ptypes | map: "year" | uniq | sort | reverse %}
+
+  {% for year in years %}
+    <h3>{{ year }}</h3>
+    <ul>
+      {% assign pyears = ptypes | where: "year", year %}
+      {% for pub in pyears %}
+        <li>
+          <strong>
+            {% if pub.top %}
+              <span style="background: gold; color: black; padding: 2px 4px; border-radius: 4px; font-size: 0.8em;">Top-tier</span>
+            {% endif %}
+          {{ pub.title }}
+          </strong><br>
+          {{ pub.authors }}<br>
+          {{ pub.venue }}
+        </li>
+      {% endfor %}
+    </ul>
+  {% endfor %}
+
+{% endfor %}
