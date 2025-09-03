@@ -1,0 +1,38 @@
+/* people page style */
+.people-grid { 
+  display: grid; 
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); 
+  gap: 18px; 
+}
+
+.person-card { 
+  border: 1px solid #eee; 
+  border-radius: 12px; 
+  padding: 14px; 
+}
+
+.person-photo { 
+  width: 100%; 
+  max-width: 220px; 
+  border-radius: 10px; 
+  display: block; 
+}
+
+.person-name { 
+  font-weight: 700; 
+  margin-top: 8px; 
+}
+
+.person-position { 
+  color: #555; 
+}
+
+.person-research { 
+  color: #333; 
+  margin-top: 6px; 
+}
+
+.person-contacts a { 
+  font-size: 0.95em; 
+}
+
