@@ -6,18 +6,17 @@ permalink: /publications/
 
 <h1>Publications</h1>
 
-{% assign pubs = site.publications %}
+{%- assign pubs = site.publications -%}
+{%- assign month_names = "January|February|March|April|May|June|July|August|September|October|November|December" | split: "|" -%}
+{%- assign type_order = "international|domestic|book|others" | split: "|" -%}
 
-{% assign types = pubs | map: "type" | uniq | sort -%}
-{% assign month_names = "January|February|March|April|May|June|July|August|September|October|November|December" | split: "|" -%}
-
-{% for type in types %}
+{%- for type in types -%}
   <h2>
-    {% if type == "international" %} International Conferences/Journals
-    {% elsif type == "domestic" %} Domestic Conferences/Journals
-    {% elsif type == "book" %} Book Chapters
-    {% else %} Others
-    {% endif %}
+    {%- if type == "international" -%} International Conferences/Journals
+    {%- elsif type == "domestic" -%} Domestic Conferences/Journals
+    {%- elsif type == "book" -%} Book Chapters
+    {%- else -%} Others
+    {%- endif -%}
   </h2>
 
   {%- assign ptypes = pubs | where: "type", type -%}
