@@ -1,6 +1,6 @@
 ---
 name: Hakyeong Seong
-role: Graduate Student
+role: int
 position: M.S./Ph.D. Integrated Student
 research: Transport Layer Security, Post-quantum Cryptography
 photo: /assets/images/people/hakyeong.png

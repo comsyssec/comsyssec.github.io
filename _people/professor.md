@@ -1,6 +1,6 @@
 ---
 name: Hyunwoo Lee
-role: Project Investigator
+role: professor
 position: Assistant Professor
 photo: /assets/images/people/hwlee.jpg
 email: hwlee@kentech.ac.kr

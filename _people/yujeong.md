@@ -1,6 +1,6 @@
 ---
 name: Yujeong Seo
-role: Graduate Student
+role: ms
 position: Master Student
 research: AI Security Orchestration
 photo: /assets/images/people/yujeong.png

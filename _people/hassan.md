@@ -1,6 +1,6 @@
 ---
 name: Hassan Asghar
-role: Ph.D. Student
+role: phd
 position: Ph.D. Student
 research: Security Verification, LLM
 photo: /assets/images/people/hassan.png

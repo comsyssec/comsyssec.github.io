@@ -36,3 +36,9 @@
   font-size: 0.95em; 
 }
 
+.pub-list { list-style: none; padding-left: 0; }
+.pub-item { margin: 12px 0 20px; }
+.pub-title { font-weight: 700; }
+.badge-top { background: gold; color: #000; padding: 2px 4px; border-radius: 4px; font-size: .85em; margin-right: 6px; }
+.pub-authors { margin-top: 2px; }
+.pub-venue { color: #444; margin-top: 2px; font-style: italic; }
