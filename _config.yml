@@ -36,7 +36,7 @@ collections:
   research:
     output: true
   teaching:
-    output: true
+    output: false
   gallery:
     output: true
 
