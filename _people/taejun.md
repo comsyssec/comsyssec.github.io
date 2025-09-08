@@ -1,5 +1,5 @@
 ---
-name: Taijun Choi
+name: Taejun Choi
 role: ui
 position: Undergraduate Intern
 research: Data Augmentation, Adversarial Learning
