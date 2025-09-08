@@ -100,10 +100,47 @@ main {
 }
 
 /* —— Small screens —————————————————————————————— */
-@media (max-width: 720px) {
-  .brand-text { display: none; }         /* 모바일에선 로고만 */
-  .nav-list { gap: 12px; }
-  .nav-list a { padding: 6px 0; }
+/* ===== Mobile (스마트폰) 레이아웃 조정 ===== */
+@media (max-width: 640px) {
+  /* 헤더 컨테이너는 필요 시 줄바꿈 허용 */
+  .nav-container {
+    padding: 10px 14px;
+    gap: 10px;
+    flex-wrap: wrap;              /* 로고/메뉴 줄바꿈 허용 */
+  }
+
+  /* 로고 줄이기 */
+  .brand-logo {
+    width: 28px;                  /* was: 40px */
+    height: 28px;
+  }
+
+  /* 긴 제목 숨김(이미 있으면 그대로 유지) */
+  .brand-text {
+    display: none;                /* 로고만 보이게 */
+  }
+
+  /* 메뉴: 작은 글자 + 줄바꿈 */
+  .main-nav {
+    flex: 1 1 100%;
+  }
+  .nav-list {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;              /* 여러 줄 허용 */
+    gap: 8px 12px;                /* 세로/가로 간격 */
+    margin-top: 2px;
+  }
+  .nav-list a {
+    font-size: 0.92rem;           /* 살짝 축소 */
+    padding: 6px 0;
+    border-bottom-width: 2px;     /* 호버 밑줄 유지 */
+  }
+
+  /* 첫 줄에 로고, 그 아래에 메뉴가 두 줄까지 나올 수 있음 */
+  .site-header {
+    border-bottom: 1px solid var(--border);
+  }
 }
 
 
