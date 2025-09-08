@@ -4,7 +4,7 @@ authors: "<b>Hyunwoo Lee</b>, Anand Mudgerikar, Ashish Kundu, and Ninghui Li, an
 venue: The 27th European Symposium on Research in Computer Science 2022
 year: 2022
 month: 9
-link: /assets/publications/esorics_2022.pdf
+paper: /assets/publications/esorics_2022.pdf
 type: international
 quality: excellent
 location: Copenhagen, Denmark

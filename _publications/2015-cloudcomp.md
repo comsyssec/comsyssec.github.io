@@ -4,7 +4,7 @@ authors: "Kostas Choumas, Thanasis Korakis, <b>Hyunwoo Lee</b>, Donghyun Kim, Ju
 venue: 6th EAI International Conference on Cloud Computing (Cloudcomp '15)
 year: 2015
 month: 10
-link: /assets/publications/syscon_2016.pdf
+paper: /assets/publications/cloudcomp_2015.pdf
 type: international
 quality: false
 location: Daejeon, Korea

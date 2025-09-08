@@ -4,7 +4,7 @@ authors: "Ahmed Abdelhadi, Felipe Rechia, Arvind Narayanan, Thiago Teixeira, Ric
 venue: Systems Conference (SysCon '16)
 year: 2016
 month: 4
-link: /assets/publications/syscon_2016.pdf
+paper: /assets/publications/syscon_2016.pdf
 type: international
 quality: false
 location: Orlando, FL, United States

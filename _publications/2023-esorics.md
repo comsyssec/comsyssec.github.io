@@ -4,7 +4,7 @@ authors: "Weicheng Wang, <b>Hyunwoo Lee</b>, Yan Huang, Elisa Bertino and Ninghu
 venue: The 28th European Symposium on Research in Computer Science 2023
 year: 2023
 month: 9
-link: /assets/publications/mtdpi.pdf
+paper: /assets/publications/mtdpi.pdf
 type: international
 quality: excellent
 location: The Hague, The Netherlands

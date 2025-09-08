@@ -49,8 +49,14 @@ permalink: /publications/
                 {%- endif -%}
 
                 <span class="pub-title">{{ pub.title }}</span>
-                {%- if pub.link -%}
-                  <a class="pub-link" href="{{ pub.link }}" target="_blank" rel="noopener">[Paper]</a>
+                {%- if pub.paper -%}
+                  <a class="pub-link" href="{{ pub.paper }}" target="_blank" rel="noopener">[Paper]</a>
+                {%- endif -%}
+                {%- if pub.proposal -%}
+                  <a class="pub-link" href="{{ pub.proposal }}" target="_blank" rel="noopener">[Proposal]</a>
+                {%- endif -%}
+                {%- if pub.poster -%}
+                  <a class="pub-link" href="{{ pub.poster }}" target="_blank" rel="noopener">[Poster]</a>
                 {%- endif -%}
               </div>
 
