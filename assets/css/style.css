@@ -111,8 +111,8 @@ main {
 
   /* 로고 줄이기 */
   .brand-logo {
-    width: 28px;                  /* was: 40px */
-    height: 28px;
+    width: 50px;                  /* was: 40px */
+    height: 50px;
   }
 
   /* 긴 제목 숨김(이미 있으면 그대로 유지) */
