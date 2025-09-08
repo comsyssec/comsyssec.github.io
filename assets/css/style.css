@@ -195,7 +195,7 @@ main {
 }
 .icon-link:hover{ color:var(--accent); }
 .i{
-  display:block; align-items:center; justify-content:center;
+  display:inline-flex; align-items:center; justify-content:center;
   width:10px; height:10px;
   font-size:.85rem; font-weight:10;
   color:#0369a1; background:#e0f2fe; border-radius:6px;
