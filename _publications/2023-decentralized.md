@@ -6,5 +6,5 @@ year: 2023
 month: 10
 link: /assets/publications/decentralization.pdf
 type: international
-top: false
+quality: false
 ---

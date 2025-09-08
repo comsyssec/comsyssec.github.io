@@ -6,6 +6,6 @@ year: 2019
 month: 4
 link: /assets/publications/d2tls.pdf
 type: international
-top: false
+quality: false
 location: Montreal, Canada
 ---

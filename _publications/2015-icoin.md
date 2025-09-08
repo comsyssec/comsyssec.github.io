@@ -6,6 +6,6 @@ year: 2015
 month: 1
 link: /assets/publications/icoin_2015.pdf
 type: international
-top: false
+quality: false
 location: Siem Reap, Cambodia
 ---

@@ -6,5 +6,5 @@ year: 2022
 month: 1
 link: /assets/publications/arxiv1.pdf
 type: international
-top: false
+quality: false
 ---

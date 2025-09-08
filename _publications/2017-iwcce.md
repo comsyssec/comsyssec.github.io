@@ -5,5 +5,5 @@ venue: 2017 International Workshop on Computing in Civil Engineering (IWCCE '17)
 year: 2017
 link: /assets/publications/iwcce_2017.pdf
 type: international
-top: false
+quality: false
 ---

@@ -6,6 +6,6 @@ year: 2015
 month: 10
 link: /assets/publications/syscon_2016.pdf
 type: international
-top: false
+quality: false
 location: Daejeon, Korea
 ---

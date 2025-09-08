@@ -6,6 +6,6 @@ year: 2016
 month: 4
 link: /assets/publications/syscon_2016.pdf
 type: international
-top: false
+quality: false
 location: Orlando, FL, United States
 ---

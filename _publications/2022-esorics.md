@@ -6,6 +6,6 @@ year: 2022
 month: 9
 link: /assets/publications/esorics_2022.pdf
 type: international
-top: false
+quality: excellent
 location: Copenhagen, Denmark
 ---

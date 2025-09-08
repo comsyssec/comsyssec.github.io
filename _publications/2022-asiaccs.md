@@ -6,6 +6,6 @@ year: 2022
 month: 6
 link: /assets/publications/asiaccs_2022.pdf
 type: international
-top: false
+quality: excellent
 location: Nagasaki, Japan
 ---
