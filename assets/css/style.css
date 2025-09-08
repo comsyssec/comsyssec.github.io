@@ -111,8 +111,9 @@ main {
 
   /* 로고 줄이기 */
   .brand-logo {
-    width: 50px;                  /* was: 40px */
-    height: 50px;
+    width: 100px;                  /* was: 40px */
+    display: block;
+    margin: 0 auto;
   }
 
   /* 긴 제목 숨김(이미 있으면 그대로 유지) */
@@ -199,6 +200,23 @@ main {
 }
 .person-name{ font-weight:800; font-size:1.06rem; line-height:1.2; }
 .person-position{ color:var(--muted); margin-top:4px; }
+
+/* ✅ 연구 태그 */
+.person-tags{
+  margin-top:8px;
+  display:flex; flex-wrap:wrap; gap:6px;
+}
+.chip{
+  display:inline-block;
+  padding: 2px 8px;
+  border-radius:999px;
+  background:#f1f5f9;          /* slate-100 */
+  color:#334155;               /* slate-700 */
+  border:1px solid #e2e8f0;    /* slate-200 */
+  font-size:.75rem;
+  line-height:1.6;
+  white-space:nowrap;
+}
 
 /* 하단 설명: 전체 너비 */
 .person-bio{

@@ -29,6 +29,16 @@ permalink: /people/
         {% if person.position %}
           <div class="person-position">{{ person.position }}</div>
         {% endif %}
+      
+
+        {% if person.research %}
+        <div class="person-tags">
+          {% assign chips = person.research | split: "," %}
+          {% for c in chips %}
+            <span class="chip">{{ c | strip }}</span>
+          {% endfor %}
+        </div>
+        {% endif %}
       </div>
 
       <!-- 하단: 설명(전체 너비) -->

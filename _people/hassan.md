@@ -2,7 +2,7 @@
 name: Hassan Asghar
 role: phd
 position: Ph.D. Student
-research: Security Verification, LLM
+research: Security Verification, Large Language Model
 photo: /assets/images/people/hassan.png
 email: hassanasghar@kentech.ac.kr
 website:

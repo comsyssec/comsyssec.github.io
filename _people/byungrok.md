@@ -2,7 +2,7 @@
 name: Byungrok Kim
 role: re
 position: Researcher
-research: AI Optimization, Automated network generation
+research: AI Optimization, Deep learning
 photo: /assets/images/people/byungrok.png
 email: fried4chicken@kentech.ac.kr
 website:
