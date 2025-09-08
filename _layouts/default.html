@@ -3,36 +3,61 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ComSysSec Lab</title>
+  <title>Computer System Security Lab @ KENTECH</title>
   <link rel="stylesheet" href="/assets/css/style.css">
 </head>
 <body>
-  <header>
-    <h1>Computer System Security Lab @ KENTECH</h1>
-    <nav>
-      <ul>
-        <li><a href="/">Home</a></li>
-        <li><a href="/people">People</a></li>
-        <li><a href="/publications">Publications</a></li>
-        <li><a href="/research">Research</a></li>
-        <li><a href="/teaching">Teaching</a></li>
-        <li><a href="/gallery">Gallery</a></li>
-        <li><a href="https://github.com/comsyssec" target="_blank">Github</a></li>
-      </ul>
-    </nav>
+  <header class="site-header">
+    <div class="nav-container">
+      <a class="brand" href="/" aria-label="home">
+        <img src="/assets/images/logo.png" alt="Computer System Security Lab." class="brand-logo">
+      </a>
+      <nav class="main-nav" aria-label="Main navigation">
+        <ul class="nav-list">
+          <li><a href="/">Home</a></li>
+          <li><a href="/people">People</a></li>
+          <li><a href="/publications">Publications</a></li>
+          <li><a href="/research">Research</a></li>
+          <li><a href="/teaching">Teaching</a></li>
+          <li><a href="/gallery">Gallery</a></li>
+          <li><a href="https://github.com/comsyssec" target="_blank" rel="noopener">Github</a></li>
+        </ul>
+      </nav>
+    </div>
   </header>
 
   <main>
     {% if page.title == "Home" %}
-      <section>
-        <h2>About csslab</h2>
-        <p>The Computer System Security Lab (csslab) is one of the laboratories of the department of energy engineering at <a href="https://www.kentech.ac.kr" target="_blank">Korea Institute of Energy Technology (KENTECH)</a> led by <a href="https://hw5773.github.io" target="_blank">Prof. Hyunwoo Lee</a>.</p>
+      <section class="vision">
+        <h2>Welcome to Computer System Security Lab @ KENTECH!</h2>
+        <p>The Computer System Security Lab (csslab) is one of the laboratories of the department of energy engineering at <a href="https://www.kentech.ac.kr" target="_blank">Korea Institute of Energy Technology (KENTECH)</a> led by <a href="https://hw5773.github.io" target="_blank">Prof. Hyunwoo Lee</a>, focusing on:</p>
+
+        <div class="vision-grid">
+          {% for v in site.data.vision %}
+          <div class="vision-card">
+            <div class="vision-logo-wrap">
+              <img src="{{ v.image }}" alt="{{ v.goal }}" class="vision-logo">
+            </div>
+            <h3 class="vision-title">{{ v.goal }}</h3>
+            <p class="vision-desc">{{ v.content }}</p>
+          </div>
+          {% endfor %}
+        </div>
       </section>
+
       <section>
         <h2>Latest News</h2>
-        <ul>
-          {% for news in site.data.news %}
-            <li>{{ news.date }} - {{ news.title }}</li>
+        <ul class="news-list">
+          {% assign sorted_news = site.data.news | sort: "date" | reverse %}
+          {% for news in sorted_news limit:10 %}
+            {% assign d = news.date | date: "%b %d, %Y" %}
+            <li class="news-item">
+              <span class="news-date">{{ d }}</span>
+              <span class="news-badge {% if news.category %}badge-{{ news.category }}{% endif %}">
+                {{ news.category | capitalize }}
+              </span>
+              <span class="news-text">{{ news.title }}</span>
+            </li>
           {% endfor %}
         </ul>
       </section>

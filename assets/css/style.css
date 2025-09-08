@@ -1,40 +1,229 @@
-/* people page style */
-.people-grid { 
-  display: grid; 
-  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); 
-  gap: 18px; 
+/* —— Base typography ——————————————————————————————— */
+:root{
+  --text: #0f172a;          /* slate-900 */
+  --muted: #475569;         /* slate-600 */
+  --border: #e2e8f0;        /* slate-200 */
+  --accent: #0ea5e9;        /* sky-500 */
 }
 
-.person-card { 
-  border: 1px solid #eee; 
-  border-radius: 12px; 
-  padding: 14px; 
+html { box-sizing: border-box; }
+*, *::before, *::after { box-sizing: inherit; }
+body {
+  margin: 0;
+  color: var(--text);
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Noto Sans",
+               "Apple SD Gothic Neo", "Malgun Gothic", "Helvetica Neue", Arial, sans-serif;
+  line-height: 1.6;
+  background: #fff;
 }
 
-.person-photo { 
-  width: 100%; 
-  max-width: 220px; 
-  border-radius: 10px; 
-  display: block; 
+
+/* —— Header / Navigation ——————————————————————————— */
+.site-header {
+  background: #fff;
+  border-bottom: 1px solid var(--border);
 }
 
-.person-name { 
-  font-weight: 700; 
-  margin-top: 8px; 
+.nav-container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 12px 20px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
 }
 
-.person-position { 
-  color: #555; 
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  color: inherit;
+  flex-shrink: 0;
 }
 
-.person-research { 
-  color: #333; 
-  margin-top: 6px; 
+.brand-logo {
+  width: 200px;
+  object-fit: contain;
 }
 
-.person-contacts a { 
-  font-size: 0.95em; 
+.brand-text {
+  font-weight: 700;
+  font-size: 1.05rem;
+  letter-spacing: .1px;
+  white-space: nowrap;
 }
+
+/* 메뉴 */
+.main-nav { margin-left: auto; }
+.nav-list {
+  list-style: none;
+  display: flex;
+  gap: 18px;
+  margin: 0;
+  padding: 0;
+  flex-wrap: wrap;
+}
+.nav-list a {
+  display: inline-block;
+  padding: 6px 2px;
+  text-decoration: none;
+  color: var(--muted);
+  font-weight: 600;
+  letter-spacing: .2px;
+  transition: color .2s ease, border-color .2s ease;
+  border-bottom: 2px solid transparent;
+}
+.nav-list a:hover,
+.nav-list a:focus {
+  color: var(--text);
+  border-bottom-color: var(--accent);
+  outline: none;
+}
+
+/* 현재 페이지 강조(옵션): 각 페이지에서 body나 main에 data-page 속성을 주고 매칭해도 됨 */
+/* 예: <body data-page="publications"> … */
+body[data-page="people"]        .nav-list a[href="/people"],
+body[data-page="publications"]  .nav-list a[href="/publications"],
+body[data-page="research"]      .nav-list a[href="/research"],
+body[data-page="teaching"]      .nav-list a[href="/teaching"],
+body[data-page="gallery"]       .nav-list a[href="/gallery"] {
+  color: var(--text);
+  border-bottom-color: var(--accent);
+}
+
+/* —— Main spacing ———————————————————————————————— */
+main {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 24px 20px 40px;
+}
+
+/* —— Small screens —————————————————————————————— */
+@media (max-width: 720px) {
+  .brand-text { display: none; }         /* 모바일에선 로고만 */
+  .nav-list { gap: 12px; }
+  .nav-list a { padding: 6px 0; }
+}
+
+
+/* ===== People sections ===== */
+.people-section { margin: 36px 0 44px; }
+.people-section + .people-section { border-top: 1px solid var(--border); padding-top: 36px; }
+.people-section-title {
+  font-size: 1.35rem;
+  margin: 0 0 16px;
+  position: relative;
+}
+.people-section-title::after {
+  content: "";
+  position: absolute; left: 0; bottom: -6px;
+  width: 48px; height: 2px; background: var(--accent); border-radius: 2px;
+}
+
+/* ===== 카드 레이아웃: 상단(사진+헤드) / 하단(설명/연락처 전체폭) ===== */
+.person-card{
+  display:grid;
+  grid-template-columns: 120px 1fr;                 /* 좌: 사진, 우: 헤드 */
+  grid-template-areas:
+    "photo head"
+    "desc  desc"
+    "contacts contacts";
+  gap:14px;
+  border:1px solid var(--border);
+  border-radius:14px;
+  background:#fff;
+  padding:16px;
+  transition: box-shadow .2s ease, transform .2s ease, border-color .2s ease;
+}
+.person-card:hover{
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(15,23,42,.08);
+  border-color:#dbe4f3;
+}
+
+/* 사진: 왼쪽 칸 고정 */
+.person-photo{
+  grid-area: photo;
+  width:120px; height:120px;
+  object-fit:cover;
+  border-radius:50%;
+  border:1px solid var(--border);
+  background:#f8fafc;
+}
+
+/* 상단 이름/직급: 사진 오른쪽 한 줄(필요 시 두 줄) */
+.person-head{
+  grid-area: head;
+  min-width:0;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+}
+.person-name{ font-weight:800; font-size:1.06rem; line-height:1.2; }
+.person-position{ color:var(--muted); margin-top:4px; }
+
+/* 하단 설명: 전체 너비 */
+.person-bio{
+  grid-area: desc;     /* 두 컬럼(span) */
+  margin-top:2px;
+  color:#334155;
+}
+
+/* 하단 연락처: 전체 너비 */
+.person-contacts{
+  grid-area: contacts; /* 두 컬럼(span) */
+  display:flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-top:8px;
+}
+
+.person-contects a {
+  display: block;
+  font-size: 0.9rem;
+  text-decoration: none;
+  color: var(--text);
+  overflow-wrap: anywhere;
+}
+
+.icon-link{
+  display:inline-flex; align-items:center; gap:6px;
+  text-decoration:none; color:var(--text); font-weight:600;
+  font-size:.92rem;
+  overflow-wrap:anywhere;      /* 긴 이메일 자동 줄바꿈 */
+}
+.icon-link:hover{ color:var(--accent); }
+.i{
+  display:block; align-items:center; justify-content:center;
+  width:10px; height:10px;
+  font-size:.85rem; font-weight:10;
+  color:#0369a1; background:#e0f2fe; border-radius:6px;
+}
+
+/* 반응형: 모바일에서 사진/헤드 수직 스택 */
+@media (max-width: 560px){
+  .person-card{
+    grid-template-columns: 80px 1fr;
+    grid-template-areas:
+      "photo head"
+      "desc  desc"
+      "contacts contacts";
+  }
+  .person-photo{ width:80px; height:80px; }
+}
+
+/* 섹션/그리드(기존) */
+.people-grid{
+  display:grid;
+  grid-template-columns: repeat(12,1fr);
+  gap:18px;
+}
+@media (min-width:1200px){ .person-card{ grid-column: span 4; } }
+@media (min-width:720px) and (max-width:1199px){ .person-card{ grid-column: span 6; } }
+@media (max-width:719px){ .person-card{ grid-column: 1 / -1; } }
+
+
 
 .pub-list { list-style: none; padding-left: 0; }
 .pub-item { margin: 12px 0 20px; }
@@ -42,3 +231,117 @@
 .badge-top { background: gold; color: #000; padding: 2px 4px; border-radius: 4px; font-size: .85em; margin-right: 6px; }
 .pub-authors { margin-top: 2px; }
 .pub-venue { color: #444; margin-top: 2px; font-style: italic; }
+
+/* —— Latest News ——————————————————————————— */
+.news-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 8px;
+}
+
+.news-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 4px 0;
+  border: none;
+  background: none;
+  flex-wrap: nowrap;
+}
+
+.news-date {
+  box-sizing: border-box;
+  flex: 0 0 120px;
+  width: 120px;
+  font-weight: 600;
+  color: var(--muted);
+  white-space: nowrap;
+  text-align: left;
+}
+
+.news-badge {
+  box-sizing: border-box;
+  flex: 0 0 100px;
+  width: 100px;
+  display: inline-block;
+  text-align: center;
+  padding: 2px 0;
+  border-radius: 999px;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: .2px;
+  border: 1px solid transparent;
+  white-space: nowrap;
+}
+
+/* 카테고리별 배지 색상 */
+.badge-paper    { background: #ecfeff; color: #155e75; border-color: #a5f3fc; }  /* cyan-ish */
+.badge-award    { background: #fef3c7; color: #92400e; border-color: #fde68a; }  /* amber */
+.badge-newcomer { background: #e0f2fe; color: #075985; border-color: #bae6fd; }  /* sky */
+.badge-event    { background: #e9d5ff; color: #5b21b6; border-color: #d8b4fe; }  /* violet */
+.badge-book     { background: #dcfce7; color: #166534; border-color: #bbf7d0; }  /* green */
+
+.news-text {
+  margin: 0;
+  white-space: normal;
+}
+
+/* 좁은 화면 대응 */
+@media (max-width: 640px) {
+  .news-item {
+    flex-wrap: wrap;
+  }
+}
+
+
+/* —— Vision ———————————————————————————————— */
+.vision { margin: 28px 0 8px; }
+.vision-grid{
+  display:grid;
+  grid-template-columns: repeat(3, 1fr);   /* 데스크톱: 3열 */
+  gap: 18px;
+}
+.vision-card{
+  border:1px solid var(--border);
+  border-radius:12px;
+  padding:16px;
+  background:#fff;
+  text-align:center;
+}
+
+/* 로고(이미지) 영역: 같은 라인/높이로 정렬되도록 고정 높이 */
+.vision-logo-wrap{
+  height:120px;                 /* 필요 시 100~140px로 조정 */
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  margin-bottom:10px;
+}
+.vision-logo{
+  max-width:140px;              /* 로고 너비 제한 */
+  max-height:100%;              /* 카드 안에서 최대 높이 */
+  object-fit:contain;           /* 비율 유지 */
+  display:block;
+}
+
+.vision-title{
+  margin:6px 0 6px;
+  font-size:1.05rem;
+  font-weight:700;
+}
+.vision-desc{
+  margin:0;
+  color:var(--muted);
+  line-height:1.55;
+}
+
+/* 반응형: 화면이 좁아지면 자동으로 2열 → 1열 */
+@media (max-width: 980px){
+  .vision-grid{ grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 640px){
+  .vision-grid{ grid-template-columns: 1fr; }
+  .vision-logo-wrap{ height:100px; }
+}

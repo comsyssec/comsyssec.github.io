@@ -1,0 +1,11 @@
+- goal: "AI-driven Security"
+  content: "We study machine-learning-based security building blocks such as intrusion detection systems (IDS) to make energy systems secure and trustworthy"
+  image: "/assets/images/vision-1.png"
+
+- goal: "Security by Design"
+  content: "We design and implement security building blocks for energy systems, including public key infrastructure (PKI) or security protocols (e.g., TLS or IPsec)"
+  image: "/assets/images/vision-2.png"
+
+- goal: "Security Verification"
+  content: "We verify security and privacy properties of energy AI systems based on specifications or implementations, leveraging formal or informal methods"
+  image: "/assets/images/vision-3.png"
