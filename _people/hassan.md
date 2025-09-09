@@ -5,6 +5,6 @@ position: Ph.D. Student
 research: Security Verification, Large Language Model
 photo: /assets/images/people/hassan.png
 email: hassanasghar@kentech.ac.kr
-website:ha0711.github.io
+website: https://ha0711.github.io
 ---
 Joined in 2024, researching security verification on the IEEE 2030.5 protocol
