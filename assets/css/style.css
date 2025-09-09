@@ -395,6 +395,85 @@ main {
 }
 
 
+/* ===== Research (hero형 카드) ===== */
+
+.research-section { margin: 36px 0 44px; }
+.research-section + .people-section { border-top: 1px solid var(--border); padding-top: 36px; }
+.research-section-title {
+  font-size: 1.35rem;
+  margin: 0 0 16px;
+  position: relative;
+}
+.research-section-title::after {
+  content: "";
+  position: absolute; left: 0; bottom: -6px;
+  width: 48px; height: 2px; background: var(--accent); border-radius: 2px;
+}
+
+
+.research-list {
+  display: grid;
+  gap: 24px;
+  margin-bottom: 40px;
+}
+
+/* 박스는 넉넉하게, 내용 섹션은 위→아래로 */
+.research-card {
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  background: #fff;
+  padding: 18px;
+  transition: box-shadow .2s ease, transform .2s ease, border-color .2s ease;
+}
+.research-card:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 8px 22px rgba(15, 23, 42, 0.08);
+  border-color: #dbe4f3;
+}
+
+.research-title {
+  margin: 0 0 6px 0;
+  font-size: 1.15rem;
+  font-weight: 800;
+  line-height: 1.25;
+}
+
+.research-meta {
+  color: #475569;             /* slate-600 */
+  font-size: .95rem;
+  margin-bottom: 10px;         /* 메타 ↔ 이미지 사이 간격 */
+}
+
+/* 대표 도면: 크게, 박스 폭을 꽉 채움 */
+.research-hero {
+  margin-top: 6px;
+  margin-bottom: 10px;
+  background: #f8fafc;        /* 밝은 캔버스 */
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+  padding: 8px;                /* 이미지가 흰 테두리에 붙지 않게 */
+}
+.research-hero img {
+  width: 100%;
+  max-height: 480px;           /* 필요 시 400~520px로 조절 */
+  object-fit: contain;         /* 그림 비율 유지하며 크게 */
+  display: block;
+  border-radius: 6px;
+}
+
+/* 설명: 넉넉한 행간 */
+.research-desc {
+  margin-top: 6px;
+  line-height: 1.6;
+  color: #334155;              /* slate-700 */
+}
+
+/* 모바일에서도 동일한 단일 컬럼 */
+@media (max-width: 720px) {
+  .research-hero img { max-height: 380px; }
+}
+
+
 /* —— Latest News ——————————————————————————— */
 .news-list {
   list-style: none;
@@ -508,3 +587,58 @@ main {
   .vision-grid{ grid-template-columns: 1fr; }
   .vision-logo-wrap{ height:100px; }
 }
+
+/* —— Gallery —— */
+.gallery-toolbar { display:flex; flex-wrap:wrap; gap:8px; margin: 8px 0 16px; }
+.gfilter {
+  border:1px solid var(--border); background:#fff; color:#334155;
+  border-radius: 999px; padding:6px 10px; font-weight:600; cursor:pointer;
+}
+.gfilter.is-active { border-color:#0ea5e9; color:#0ea5e9; }
+
+.gallery-grid {
+  list-style:none; margin:0; padding:0;
+  display:grid; gap:16px;
+  grid-template-columns: repeat(12, 1fr);
+}
+.gallery-year {
+  grid-column: 1 / -1;
+  font-weight: 800;
+  color: #0f172a;
+  margin: 6px 0 4px;
+  border-left: 4px solid var(--accent);
+  padding-left: 8px;
+}
+
+.gallery-card { grid-column: span 4; border:1px solid var(--border); border-radius:12px; overflow:hidden; background:#fff; }
+.gallery-card img { width:100%; height:220px; object-fit:cover; display:block; }
+.gmeta { padding:10px 12px; }
+.gtitle { font-weight:800; }
+.gcap { color:#475569; margin-top:2px; }
+.gdate { color:#64748b; font-size:.85rem; margin-top:4px; }
+
+/* 반응형 */
+@media (max-width: 1024px){ .gallery-card { grid-column: span 6; } }
+@media (max-width: 640px){ .gallery-card { grid-column: 1 / -1; } }
+
+/* 라이트박스 */
+.lightbox { position:fixed; inset:0; display:grid; place-items:center; z-index:9999; }
+.lightbox[hidden] { display: none !important; }
+.lb-backdrop { position:absolute; inset:0; background: rgba(0,0,0,.5); }
+.lb-figure { position:relative; background:#0b1020; padding:10px; border-radius:12px; max-width:min(92vw, 1200px); max-height:90vh; display:flex; flex-direction:column; gap:8px; }
+.lb-figure img { max-width:100%; max-height:76vh; object-fit:contain; background:#fff; border-radius:8px; }
+.lb-figure figcaption { color:#e5e7eb; font-size:.95rem; text-align:center; }
+.lb-close { position:absolute; top:6px; right:8px; font-size:28px; line-height:1; background:none; border:none; color:#e5e7eb; cursor:pointer; }
+
+/* 페이지네이션 */
+.pager {
+  display:flex; flex-wrap:wrap; gap:10px; align-items:center; justify-content:center;
+  margin-top: 16px;
+}
+.pbtn {
+  border:1px solid var(--border); background:#fff; color:#334155;
+  border-radius: 8px; padding:6px 10px; text-decoration:none; font-weight:600;
+}
+.pbtn[aria-disabled="true"] { opacity:.45; pointer-events:none; }
+.ppage { color:#475569; font-weight:700; }
+

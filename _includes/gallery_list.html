@@ -1,0 +1,134 @@
+{%- comment -%}
+공통 변수
+{%- endcomment -%}
+{%- assign all_items = site.gallery | sort: "date" | reverse -%}
+{%- assign page_size = 10 -%}
+{%- assign current = page.page_index | default: 1 | plus: 0 -%}
+{%- assign offset = current | minus: 1 | times: page_size -%}
+
+{%- comment -%}
+전체 페이지 수 계산: ((N-1)/page_size)+1
+{%- endcomment -%}
+{%- assign total = all_items.size -%}
+{%- assign last_idx = total | minus: 1 -%}
+{%- assign base_pages = last_idx | divided_by: page_size -%}
+{%- assign total_pages = base_pages | plus: 1 -%}
+{%- if total == 0 -%}{% assign total_pages = 1 %}{%- endif -%}
+
+{%- comment -%}
+태그 목록 수집
+{%- endcomment -%}
+{%- assign all_tags_csv = "" -%}
+{%- for it in all_items -%}
+  {%- if it.tags -%}
+    {%- for t in it.tags -%}
+      {%- unless all_tags_csv contains t -%}
+        {%- assign all_tags_csv = all_tags_csv | append: t | append: "," -%}
+      {%- endunless -%}
+    {%- endfor -%}
+  {%- endif -%}
+{%- endfor -%}
+{%- assign all_tags = all_tags_csv | split: "," | sort -%}
+
+<div class="gallery-toolbar">
+  <button class="gfilter is-active" data-tag="*">All</button>
+  {%- for t in all_tags -%}
+    {%- if t != "" -%}
+      <button class="gfilter" data-tag="{{ t | escape }}">{{ t }}</button>
+    {%- endif -%}
+  {%- endfor -%}
+</div>
+
+<ul class="gallery-grid">
+  {%- assign prev_year = "" -%}
+  {%- for g in all_items limit: page_size offset: offset -%}
+    {%- assign y = g.date | date: "%Y" -%}
+    {%- if y != prev_year -%}
+      <li class="gallery-year">{{ y }}</li>
+      {%- assign prev_year = y -%}
+    {%- endif -%}
+
+    <li class="gallery-card" data-tags="{{ g.tags | join: ' ' }}">
+      <a href="{{ g.image }}" class="glink" data-title="{{ g.title | escape }}" data-caption="{{ g.caption | escape }}">
+        <img src="{{ g.image }}" alt="{{ g.title | escape }}">
+      </a>
+      <div class="gmeta">
+        <div class="gtitle">{{ g.title }}</div>
+        {%- if g.caption -%}<div class="gcap">{{ g.caption }}</div>{%- endif -%}
+        <div class="gdate">{{ g.date | date: "%b %d, %Y" }}</div>
+      </div>
+    </li>
+  {%- endfor -%}
+</ul>
+
+{%- if total_pages > 1 -%}
+<nav class="pager" aria-label="Gallery pagination">
+  {%- assign base = "/gallery" -%}
+  {%- assign first_href = base | append: "/" -%}
+  {%- assign prev_href  = base | append: "/page/" | append: current | minus: 1 | append: "/" -%}
+  {%- assign next_href  = base | append: "/page/" | append: current | plus: 1 | append: "/" -%}
+
+  <a class="pbtn" href="{{ first_href }}" {% if current == 1 %}aria-disabled="true"{% endif %}>&laquo; First</a>
+  <a class="pbtn" href="{% if current == 2 %}{{ first_href }}{% else %}{{ prev_href }}{% endif %}" {% if current == 1 %}aria-disabled="true"{% endif %}>&lsaquo; Prev</a>
+
+  <span class="ppage">Page {{ current }} / {{ total_pages }}</span>
+
+  <a class="pbtn" href="{{ next_href }}" {% if current == total_pages %}aria-disabled="true"{% endif %}>Next &rsaquo;</a>
+  <a class="pbtn" href="{{ base }}/page/{{ total_pages }}/" {% if current == total_pages %}aria-disabled="true"{% endif %}>Last &raquo;</a>
+</nav>
+{%- endif -%}
+
+<!-- 라이트박스 -->
+<div id="lightbox" class="lightbox" hidden>
+  <div class="lb-backdrop" data-close></div>
+  <figure class="lb-figure">
+    <img id="lb-img" alt="">
+    <figcaption id="lb-cap"></figcaption>
+    <button class="lb-close" aria-label="Close" data-close>&times;</button>
+  </figure>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  // 필터
+  const btns = document.querySelectorAll('.gfilter');
+  const cards = document.querySelectorAll('.gallery-card');
+  btns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      btns.forEach(b => b.classList.remove('is-active'));
+      btn.classList.add('is-active');
+      const tag = btn.dataset.tag;
+      cards.forEach(c => {
+        if (tag === '*') { c.style.display = ''; return; }
+        const tags = (c.dataset.tags || '').split(' ');
+        c.style.display = tags.includes(tag) ? '' : 'none';
+      });
+    });
+  });
+
+  // 라이트박스
+  const lb = document.getElementById('lightbox');
+  const lbImg = document.getElementById('lb-img');
+  const lbCap = document.getElementById('lb-cap');
+
+  document.querySelectorAll('.glink').forEach(a => {
+    a.addEventListener('click', (e) => {
+      e.preventDefault();
+      lbImg.src = a.getAttribute('href');
+      const title = a.dataset.title || '';
+      const cap = a.dataset.caption || '';
+      lbCap.textContent = title + (cap ? ' — ' + cap : '');
+      lb.removeAttribute('hidden');
+      document.body.style.overflow = 'hidden';
+    });
+  });
+  lb.addEventListener('click', (e) => {
+    if (e.target.hasAttribute('data-close')) {
+      lb.setAttribute('hidden','');
+      lbImg.src = '';
+      document.body.style.overflow = '';
+    }
+  });
+});
+</script>
+

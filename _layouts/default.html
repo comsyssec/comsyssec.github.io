@@ -47,7 +47,7 @@
         <h2>Latest News</h2>
         <ul class="news-list">
           {% assign sorted_news = site.data.news | sort: "date" | reverse %}
-          {% for news in sorted_news limit:10 %}
+          {% for news in sorted_news limit:5 %}
             {% assign d = news.date | date: "%b %d, %Y" %}
             <li class="news-item">
               <span class="news-date">{{ d }}</span>
