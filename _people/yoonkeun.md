@@ -1,5 +1,5 @@
 ---
-name: Yoongeun Park
+name: Yoonkeun Park
 role: ui
 position: Undergraduate Intern
 research: Cloud Computing Security, Federated Learning
