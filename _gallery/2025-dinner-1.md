@@ -1,7 +1,7 @@
 ---
-title: "AI/Security Workshop"
-image: /assets/images/gallery/2025-workshop-main.jpg
-date: 2025-07-08
-tags: [Workshop]
-caption: "AI/Security Workshop mainly run by CSSLab. Prof. Lee is greeting audience."
+title: "Social / Lab Dinner"
+image: /assets/images/gallery/lab-dinner.jpg
+date: 2025-10-28
+tags: [Social]
+caption: "CSSLab dinner — good food, loud laughs, and the best team energy."
 ---
