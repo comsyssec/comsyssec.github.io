@@ -39,6 +39,8 @@ collections:
     output: false
   gallery:
     output: true
+  misc:
+    output: true
 
 # Plugins
 plugins:
