@@ -50,7 +50,7 @@
     {%- if g.images -%}
       {%- for img in g.images -%}
         <li class="gallery-card" data-tags="{{ g.tags | join: ' ' }}">
-          <a href="{{ img }}" class="glink" data-title="{{ g.title | escape }}" data-caption="{{ g.caption | escape }}">
+          <a href="{{ g.image }}" class="glink" data-index="{{ forloop.index0 }}" data-title="{{ g.title | escape }}" data-caption="{{ g.caption | escape }}">
             <img src="{{ img }}" alt="{{ g.title | escape }}">
           </a>
           <div class="gmeta">
@@ -63,7 +63,7 @@
 
     {%- else -%}
       <li class="gallery-card" data-tags="{{ g.tags | join: ' ' }}">
-        <a href="{{ g.image }}" class="glink" data-title="{{ g.title | escape }}" data-caption="{{ g.caption | escape }}">
+        <a href="{{ g.image }}" class="glink" data-index="0" data-title="{{ g.title | escape }}" data-caption="{{ g.caption | escape }}">
           <img src="{{ g.image }}" alt="{{ g.title | escape }}">
         </a>
         <div class="gmeta">
@@ -96,6 +96,10 @@
 <!-- 라이트박스 -->
 <div id="lightbox" class="lightbox" hidden>
   <div class="lb-backdrop" data-close></div>
+  
+  <button id="lb-prev" class="lb-nav" aria-label="Previous">&#10094;</button>
+  <button id="lb-next" class="lb-nav" aria-label="Next">&#10095;</button>
+  
   <figure class="lb-figure">
     <img id="lb-img" alt="">
     <figcaption id="lb-cap"></figcaption>
