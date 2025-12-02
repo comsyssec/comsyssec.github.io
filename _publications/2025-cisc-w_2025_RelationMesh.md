@@ -1,12 +1,12 @@
 ---
-title: "Design of a Self-Evolving Electricity Demand Forecasting Platform Intergrated with BEMS Based On Multi-Layer Federated Learning"
-authors: <b>Hyunkyu Jang</b>, Yoonkeun Park, Myeong-ha Hwang, Jeonghyun Joo, Heewoon Kang, Yoojin Kwon, <b>Hyunwoo Lee</b>, and Sumyeong Ahn
-venue: Korea Computer Congress (KCC '25)
+title: "RelationMesh: An Explainable and Unsupervised Anomaly Detection"
+authors: <b>Byung-Rok Kim</b>,  and <b>Hyunwoo Lee</b>
+venue: Conference on Information Security and Cryptography Winter (CISC-W '25)
 year: 2025
-month: 7
-paper: /assets/publications/2025-bems.pdf
+month: 11
+paper: /assets/publications/cisc-w_2025_RelationMesh.pdf
 type: domestic
-location: Jeju, Korea
+location: Gwangju, Korea
 quality: false
 ---
 
