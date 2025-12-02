@@ -109,45 +109,68 @@
 
 <script>
 document.addEventListener('DOMContentLoaded', function () {
-  // 필터
-  const btns = document.querySelectorAll('.gfilter');
-  const cards = document.querySelectorAll('.gallery-card');
-  btns.forEach(btn => {
-    btn.addEventListener('click', () => {
-      btns.forEach(b => b.classList.remove('is-active'));
-      btn.classList.add('is-active');
-      const tag = btn.dataset.tag;
-      cards.forEach(c => {
-        if (tag === '*') { c.style.display = ''; return; }
-        const tags = (c.dataset.tags || '').split(' ');
-        c.style.display = tags.includes(tag) ? '' : 'none';
-      });
-    });
-  });
 
-  // 라이트박스
+  // Collect all gallery links
+  const links = Array.from(document.querySelectorAll('.glink'));
+
   const lb = document.getElementById('lightbox');
   const lbImg = document.getElementById('lb-img');
   const lbCap = document.getElementById('lb-cap');
+  const btnPrev = document.getElementById('lb-prev');
+  const btnNext = document.getElementById('lb-next');
 
-  document.querySelectorAll('.glink').forEach(a => {
-    a.addEventListener('click', (e) => {
+  let currentIndex = 0;
+
+  function openLightbox(index) {
+    currentIndex = index;
+    const link = links[index];
+
+    lbImg.src = link.href;
+    const title = link.dataset.title || '';
+    const cap = link.dataset.caption || '';
+    lbCap.textContent = title + (cap ? ' — ' + cap : '');
+
+    lb.removeAttribute('hidden');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeLightbox() {
+    lb.setAttribute('hidden', '');
+    document.body.style.overflow = '';
+  }
+
+  function showNext() {
+    currentIndex = (currentIndex + 1) % links.length;
+    openLightbox(currentIndex);
+  }
+
+  function showPrev() {
+    currentIndex = (currentIndex - 1 + links.length) % links.length;
+    openLightbox(currentIndex);
+  }
+
+  links.forEach((link, i) => {
+    link.addEventListener('click', (e) => {
       e.preventDefault();
-      lbImg.src = a.getAttribute('href');
-      const title = a.dataset.title || '';
-      const cap = a.dataset.caption || '';
-      lbCap.textContent = title + (cap ? ' — ' + cap : '');
-      lb.removeAttribute('hidden');
-      document.body.style.overflow = 'hidden';
+      openLightbox(i);
     });
   });
+
+  btnNext.addEventListener('click', showNext);
+  btnPrev.addEventListener('click', showPrev);
+
   lb.addEventListener('click', (e) => {
-    if (e.target.hasAttribute('data-close')) {
-      lb.setAttribute('hidden','');
-      lbImg.src = '';
-      document.body.style.overflow = '';
-    }
+    if (e.target.hasAttribute('data-close')) closeLightbox();
   });
+
+  document.addEventListener('keydown', (e) => {
+    if (lb.hidden) return;
+
+    if (e.key === 'Escape') closeLightbox();
+    if (e.key === 'ArrowRight') showNext();
+    if (e.key === 'ArrowLeft') showPrev();
+  });
+
 });
 </script>
 
