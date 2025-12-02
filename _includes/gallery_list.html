@@ -47,18 +47,33 @@
       <li class="gallery-year">{{ y }}</li>
       {%- assign prev_year = y -%}
     {%- endif -%}
+    {%- if g.images -%}
+      {%- for img in g.images -%}
+        <li class="gallery-card" data-tags="{{ g.tags | join: ' ' }}">
+          <a href="{{ img }}" class="glink" data-title="{{ g.title | escape }}" data-caption="{{ g.caption | escape }}">
+            <img src="{{ img }}" alt="{{ g.title | escape }}">
+          </a>
+          <div class="gmeta">
+            <div class="gtitle">{{ g.title }}</div>
+            {%- if g.caption -%}<div class="gcap">{{ g.caption }}</div>{%- endif -%}
+            <div class="gdate">{{ g.date | date: "%b %d, %Y" }}</div>
+          </div>
+        </li>
+      {%- endfor -%}
 
-    <li class="gallery-card" data-tags="{{ g.tags | join: ' ' }}">
-      <a href="{{ g.image }}" class="glink" data-title="{{ g.title | escape }}" data-caption="{{ g.caption | escape }}">
-        <img src="{{ g.image }}" alt="{{ g.title | escape }}">
-      </a>
-      <div class="gmeta">
-        <div class="gtitle">{{ g.title }}</div>
-        {%- if g.caption -%}<div class="gcap">{{ g.caption }}</div>{%- endif -%}
-        <div class="gdate">{{ g.date | date: "%b %d, %Y" }}</div>
-      </div>
-    </li>
-  {%- endfor -%}
+    {%- else -%}
+      <li class="gallery-card" data-tags="{{ g.tags | join: ' ' }}">
+        <a href="{{ g.image }}" class="glink" data-title="{{ g.title | escape }}" data-caption="{{ g.caption | escape }}">
+          <img src="{{ g.image }}" alt="{{ g.title | escape }}">
+        </a>
+        <div class="gmeta">
+          <div class="gtitle">{{ g.title }}</div>
+          {%- if g.caption -%}<div class="gcap">{{ g.caption }}</div>{%- endif -%}
+          <div class="gdate">{{ g.date | date: "%b %d, %Y" }}</div>
+        </div>
+      </li>
+    {%- endif -%}
+    {%- endfor -%}
 </ul>
 
 {%- if total_pages > 1 -%}
