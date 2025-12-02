@@ -50,7 +50,7 @@
     {%- if g.images -%}
       {%- for img in g.images -%}
         <li class="gallery-card" data-tags="{{ g.tags | join: ' ' }}">
-          <a href="{{ g.image }}" class="glink" data-index="{{ forloop.index0 }}" data-title="{{ g.title | escape }}" data-caption="{{ g.caption | escape }}">
+          <a href="{{ img }}" class="glink" data-index="{{ forloop.index0 }}" data-title="{{ g.title | escape }}" data-caption="{{ g.caption | escape }}">
             <img src="{{ img }}" alt="{{ g.title | escape }}">
           </a>
           <div class="gmeta">
@@ -110,25 +110,29 @@
 <script>
 document.addEventListener('DOMContentLoaded', function () {
 
-  // Collect all gallery links
-  const links = Array.from(document.querySelectorAll('.glink'));
-
   const lb = document.getElementById('lightbox');
   const lbImg = document.getElementById('lb-img');
   const lbCap = document.getElementById('lb-cap');
   const btnPrev = document.getElementById('lb-prev');
   const btnNext = document.getElementById('lb-next');
 
-  let currentIndex = 0;
+  let album = [];       // current album (list of image URLs)
+  let currentIndex = 0; // inside album
 
+  // Open lightbox for a given index inside album
   function openLightbox(index) {
     currentIndex = index;
-    const link = links[index];
+    lbImg.src = album[currentIndex].src;
+    lbCap.textContent = album[currentIndex].caption;
 
-    lbImg.src = link.href;
-    const title = link.dataset.title || '';
-    const cap = link.dataset.caption || '';
-    lbCap.textContent = title + (cap ? ' — ' + cap : '');
+    // SHOW/HIDE prev-next
+    if (album.length <= 1) {
+      btnPrev.style.display = 'none';
+      btnNext.style.display = 'none';
+    } else {
+      btnPrev.style.display = 'flex';
+      btnNext.style.display = 'flex';
+    }
 
     lb.removeAttribute('hidden');
     document.body.style.overflow = 'hidden';
@@ -139,30 +143,53 @@ document.addEventListener('DOMContentLoaded', function () {
     document.body.style.overflow = '';
   }
 
+  // Navigation inside album
   function showNext() {
-    currentIndex = (currentIndex + 1) % links.length;
+    currentIndex = (currentIndex + 1) % album.length;
     openLightbox(currentIndex);
   }
 
   function showPrev() {
-    currentIndex = (currentIndex - 1 + links.length) % links.length;
+    currentIndex = (currentIndex - 1 + album.length) % album.length;
     openLightbox(currentIndex);
   }
 
-  links.forEach((link, i) => {
-    link.addEventListener('click', (e) => {
+  // ===========================
+  //  CLICK HANDLER (MAIN FIX!!)
+  // ===========================
+  document.querySelectorAll('.gallery-card a.glink').forEach(a => {
+    a.addEventListener('click', (e) => {
       e.preventDefault();
-      openLightbox(i);
+
+      const parent = a.closest('.gallery-card');
+      const cardsInPost = Array.from(parent.parentNode.querySelectorAll('.glink'));
+
+      // Build album for THAT post only
+      album = cardsInPost.map(link => ({
+        src: link.href,
+        caption:
+          (link.dataset.title || '') +
+          (link.dataset.caption ? " — " + link.dataset.caption : "")
+      }));
+
+      // current image index
+      currentIndex = cardsInPost.indexOf(a);
+
+      // finally open
+      openLightbox(currentIndex);
     });
   });
 
+  // BUTTON EVENTS
   btnNext.addEventListener('click', showNext);
   btnPrev.addEventListener('click', showPrev);
 
+  // BACKDROP / CLOSE button
   lb.addEventListener('click', (e) => {
     if (e.target.hasAttribute('data-close')) closeLightbox();
   });
 
+  // Keyboard shortcuts
   document.addEventListener('keydown', (e) => {
     if (lb.hidden) return;
 
@@ -173,4 +200,3 @@ document.addEventListener('DOMContentLoaded', function () {
 
 });
 </script>
-
