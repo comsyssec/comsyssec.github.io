@@ -113,6 +113,30 @@ body {
   color: #64748b;              /* slate-500 */
 }
 
+.site-footer .footer-links {
+  margin: 10px 0;
+  font-size: 0.85rem; 
+}
+
+.site-footer .footer-links a {
+  color: #0ea5e9;
+  text-decoration: underline; 
+}
+
+.site-footer .footer-internal {
+  font-weight: 600;
+}
+
+.site-footer .footer-sep {
+  margin: 0 6px;
+  color: #cbd5f5; 
+}
+
+.site-footer .footer-copy {
+  font-size: 0.8rem;
+  color: #94a3b8;
+  margin-top: 6px;
+}
 
 /* 현재 페이지 강조(옵션): 각 페이지에서 body나 main에 data-page 속성을 주고 매칭해도 됨 */
 /* 예: <body data-page="publications"> … */
