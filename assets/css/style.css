@@ -687,35 +687,33 @@ main {
 }
 .pbtn[aria-disabled="true"] { opacity:.45; pointer-events:none; }
 .ppage { color:#475569; font-weight:700; }
-/* Make news-text a positioning context for the NEW flag */
-.news-text--new {
+/* Waving "NEW" flag for the latest news item */
+.news-item--new {
   position: relative;
-  display: inline-block; /* Ensures height/width for absolute child */
+  padding-top: 20px; /* Prevents text overlap with flag */
 }
 
-/* Waving "NEW" flag next to the start of the text */
-.news-text--new::before {
+.news-item--new::before {
   content: "NEW";
   position: absolute;
-  top: -8px;
-  left: -32px; /* Adjust to position left of "Our" */
-  background: #ff6b35; /* Warm, bold, great for "new" */
+  top: -10px;
+  left: -10px;
+  background: #10b981;
   color: white;
   font-weight: bold;
   font-size: 11px;
-  padding: 2px 6px;
+  padding: 3px 10px;
   border-radius: 4px;
   transform-origin: top left;
   animation: waveFlag 1.8s ease-in-out infinite;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
   z-index: 2;
-  white-space: nowrap;
 }
 
 @keyframes waveFlag {
   0%, 100% { transform: rotate(0deg); }
-  20%      { transform: rotate(6deg); }
-  40%      { transform: rotate(-5deg); }
-  60%      { transform: rotate(4deg); }
-  80%      { transform: rotate(-2deg); }
+  20%      { transform: rotate(8deg); }
+  40%      { transform: rotate(-6deg); }
+  60%      { transform: rotate(5deg); }
+  80%      { transform: rotate(-3deg); }
 }

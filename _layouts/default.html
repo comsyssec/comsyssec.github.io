@@ -53,12 +53,12 @@
             {% if forloop.first %}
             {% assign is_new = true %}
             {% endif %}
-            <li class="news-item">
+            <li class="news-item{% if is_new %} news-item--new{% endif %}">
               <span class="news-date">{{ d }}</span>
               <span class="news-badge {% if news.category %}badge-{{ news.category }}{% endif %}">
                 {{ news.category | capitalize }}
               </span>
-              <span class="news-text{% if is_new %} news-text--new{% endif %}">{{ news.title }}</span>
+              <span class="news-text">{{ news.title }}</span>
             </li>
           {% endfor %}
         </ul>
