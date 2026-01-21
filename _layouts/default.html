@@ -49,7 +49,11 @@
           {% assign sorted_news = site.data.news | sort: "date" | reverse %}
           {% for news in sorted_news limit:5 %}
             {% assign d = news.date | date: "%b %d, %Y" %}
-            <li class="news-item">
+            {% assign is_new = false %}
+            {% if forloop.first %}
+            {% assign is_new = true %}
+            {% endif %}
+            <li class="news-item{% if is_new %} news-item--new{% endif %}">
               <span class="news-date">{{ d }}</span>
               <span class="news-badge {% if news.category %}badge-{{ news.category }}{% endif %}">
                 {{ news.category | capitalize }}
