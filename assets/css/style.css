@@ -717,11 +717,18 @@ main {
   60%      { transform: rotate(5deg); }
   80%      { transform: rotate(-3deg); }
 }
+.gslider::-webkit-scrollbar {
+  display: none;
+}
+.gslider {
+  scrollbar-width: none;
+}
 .gslider {
   display: flex;
   overflow-x: auto;
+  overflow-y: hidden;
   scroll-snap-type: x mandatory;
-  gap: 8px;
+  height: 220px;
 }
 
 .gslider a {
@@ -731,5 +738,8 @@ main {
 
 .gslider img {
   width: 100%;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
   border-radius: 12px;
 }
