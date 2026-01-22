@@ -76,7 +76,6 @@
         <div class="gdate">{{ g.date | date: "%b %d, %Y" }}</div>
       </div>
     </li>
-    {%- endif -%}
     {%- endfor -%}
 </ul>
 
@@ -159,14 +158,14 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
   // ===========================
-  //  CLICK HANDLER (MAIN FIX!!)
+  //  CLICK HANDLER
   // ===========================
   document.querySelectorAll('.gallery-card a.glink').forEach(a => {
     a.addEventListener('click', (e) => {
       e.preventDefault();
 
       const parent = a.closest('.gallery-card');
-      const cardsInPost = Array.from(parent.parentNode.querySelectorAll('.glink'));
+      const cardsInPost = Array.from(parent.querySelectorAll('.gslider .glink'));
 
       // Build album for THAT post only
       album = cardsInPost.map(link => ({
