@@ -48,34 +48,36 @@
       {%- assign prev_year = y -%}
     {%- endif -%}
     <li class="gallery-card" data-tags="{{ g.tags | join: ' ' }}">
-      <div class="gslider">
-        {%- if g.images -%}
-          {%- for img in g.images -%}
-            <a href="{{ img }}"
-              class="glink"
-              data-index="{{ forloop.index0 }}"
-              data-title="{{ g.title | escape }}"
-              data-caption="{{ g.caption | escape }}">
-              <img src="{{ img }}" alt="{{ g.title | escape }}">
-            </a>
-          {%- endfor -%}
-        {%- else -%}
-          <a href="{{ g.image }}"
-            class="glink"
-            data-index="0"
-            data-title="{{ g.title | escape }}"
-            data-caption="{{ g.caption | escape }}">
-            <img src="{{ g.image }}" alt="{{ g.title | escape }}">
-          </a>
-        {%- endif -%}
-      </div>
+  <div class="gslider">
+    {%- if g.images -%}
+      {%- for img in g.images -%}
+        <a href="{{ img }}"
+           class="glink"
+           data-index="{{ forloop.index0 }}"
+           data-title="{{ g.title | escape }}"
+           data-caption="{{ g.caption | escape }}">
+          <img src="{{ img }}" alt="{{ g.title | escape }}">
+        </a>
+      {%- endfor -%}
+    {%- else -%}
+      <a href="{{ g.image }}"
+         class="glink"
+         data-index="0"
+         data-title="{{ g.title | escape }}"
+         data-caption="{{ g.caption | escape }}">
+        <img src="{{ g.image }}" alt="{{ g.title | escape }}">
+      </a>
+    {%- endif -%}
+  </div>
 
-      <div class="gmeta">
-        <div class="gtitle">{{ g.title }}</div>
-        {%- if g.caption -%}<div class="gcap">{{ g.caption }}</div>{%- endif -%}
-        <div class="gdate">{{ g.date | date: "%b %d, %Y" }}</div>
-      </div>
-    </li>
+  <div class="gmeta">
+    <div class="gtitle">{{ g.title }}</div>
+    {%- if g.caption -%}
+      <div class="gcap">{{ g.caption }}</div>
+    {%- endif -%}
+    <div class="gdate">{{ g.date | date: "%b %d, %Y" }}</div>
+  </div>
+</li>
     {%- endfor -%}
 </ul>
 
