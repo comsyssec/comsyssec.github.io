@@ -4,6 +4,6 @@ role: ui
 position: Undergraduate Intern
 research: TBD
 photo: /assets/images/people/Dongmyeong.png
-email: 
+email: kt0230@kentech.ac.kr
 website:
 ---
