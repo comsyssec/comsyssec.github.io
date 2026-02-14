@@ -1,6 +1,6 @@
 ---
 name: Taejun Choi
-role: ui
+role: int
 position: M.S./Ph.D. Integrated Student
 research: Data Augmentation, Adversarial Learning
 photo: /assets/images/people/tjc.jpg
