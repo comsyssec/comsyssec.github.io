@@ -3,7 +3,7 @@ name: Yujeong Seo
 role: ms
 position: Master Student
 research: AI Security Orchestration
-photo: /assets/images/people/yujeong.png
+photo: /assets/images/people/yujeong.jpg
 email: yujeongseo@kentech.ac.kr
 website:
 ---
