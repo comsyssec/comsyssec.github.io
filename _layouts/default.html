@@ -47,7 +47,7 @@
       <section>
         <h2>Latest News</h2>
         <ul class="news-list">
-          {% assign sorted_news = site.data.news | sort: "date" | reverse %}
+          {% assign sorted_news = site.data.news | sort: "date_key" | reverse %}
           {% for news in sorted_news limit:5 %}
             {% assign d = news.date | date: "%b %d, %Y" %}
             {% assign is_new = false %}
