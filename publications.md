@@ -7,8 +7,8 @@ permalink: /publications/
 <div class="pub-intro">
   <p>
     CSSLab aims to publish high-quality research papers in leading security, computer networks, and AI premium venues.<br>  
-    ( <span class="badge-top">Top-tier</span>: internationally recognized premier conferences,  
-      <span class="badge-ex">Excellent</span>: high-quality venues acknowledged as "excellent" by Korean Institute of Information Scientists and Engineers)
+    ( <span class="pub-badge top">★ Top-tier</span>: internationally recognized premier conferences,  
+      <span class="pub-badge ex">Excellent</span>: high-quality venues acknowledged as "excellent" by Korean Institute of Information Scientists and Engineers)
   </p>
 </div>
 
@@ -43,9 +43,9 @@ permalink: /publications/
             <div class="pub-body">
               <div class="pub-title-line">
                 {%- if pub.quality == "top" -%}
-                  <span class="badge-top">Top-tier</span>
-                {%- elsif pub.quality == "excellent" -%}
-                  <span class="badge-ex">Excellent</span>
+                  <span class="pub-badge top">★ Top-tier</span>
+                {%- elsif pub.quality == "Excellent" -%}
+                  <span class="pub-badge ex">Excellent</span>
                 {%- endif -%}
 
                 <span class="pub-title">{{ pub.title }}</span>
