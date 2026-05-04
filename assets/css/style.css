@@ -397,7 +397,7 @@ main {
 .pub-venue   { margin-top: 2px; color: #475569; font-style: italic; }
 
 /* 배지: Top-tier > Excellent */
-.badge-top {
+/*.badge-top {
   display:inline-block; padding:2px 8px; border-radius:999px;
   background:#fef3c7; border:1px solid #fde68a; color:#92400e;
   font-size:.78rem; font-weight:800; letter-spacing:.2px;
@@ -406,6 +406,30 @@ main {
   display:inline-block; padding:2px 8px; border-radius:999px;
   background:#e0e7ff; border:1px solid #c7d2fe; color:#3730a3;
   font-size:.78rem; font-weight:700; letter-spacing:.2px;
+}*/
+.pub-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 3px 9px;
+  border-radius: 999px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.2px;
+  line-height: 1.4;
+  white-space: nowrap;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.10);
+}
+.pub-badge.top {
+  color: #5b3b00;
+  background: linear-gradient(135deg, #fff4c2, #f6c85f);
+  border: 1px solid #e0aa2b;
+}
+
+.pub-badge.ex {
+  color: #0f3f2e;
+  background: linear-gradient(135deg, #e8fff4, #b7efd0);
+  border: 1px solid #7fd3a3;
 }
 
 /* 반응형 */
