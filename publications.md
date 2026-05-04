@@ -44,7 +44,7 @@ permalink: /publications/
               <div class="pub-title-line">
                 {%- if pub.quality == "top" -%}
                   <span class="pub-badge top">★ Top-tier</span>
-                {%- elsif pub.quality == "Excellent" -%}
+                {%- elsif pub.quality == "excellent" -%}
                   <span class="pub-badge ex">Excellent</span>
                 {%- endif -%}
 
