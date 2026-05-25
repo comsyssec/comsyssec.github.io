@@ -4,6 +4,7 @@ authors: Imtiaz Karim, <b>Hyunwoo Lee</b>, <b>Hassan Asghar</b>, Kazi Samin Muba
 venue: IEEE International Conference on Computer Communications (INFOCOM '26)
 year: 2026
 month: 05
+paper: /assets/publications/2026-VWATTACKER.pdf
 type: international
 location: Tokyo, Japan
 quality: top
