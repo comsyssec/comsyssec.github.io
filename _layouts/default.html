@@ -94,30 +94,42 @@ document.addEventListener("DOMContentLoaded", () => {
             </li>
           {% endfor %}
         </ul>
-        <button class="news-more-btn" id="openNewsModal">More News</button>
-        <div class="news-modal-content">
-  <button class="news-modal-close" id="closeNewsModal">&times;</button>
+        <button class="news-more-btn" id="openNewsModal">
+  More News
+</button>
 
-  <h3>All News</h3>
+<!-- Modal -->
+<div class="news-modal" id="newsModal">
 
-  <div class="news-scroll">
-    <ul class="news-list">
-      {% for news in sorted_news offset: 5 %}
-        <li class="news-item">
-          <span class="news-date">
-            {{ news.date | date: "%b %d, %Y" }}
-          </span>
+  <div class="news-modal-overlay"></div>
 
-          <span class="news-badge {% if news.category %}badge-{{ news.category }}{% endif %}">
-            {{ news.category | capitalize }}
-          </span>
+  <div class="news-modal-content">
+    <button class="news-modal-close" id="closeNewsModal">
+      &times;
+    </button>
 
-          <span class="news-text">
-            {{ news.title }}
-          </span>
-        </li>
-      {% endfor %}
-    </ul>
+    <h3>All News</h3>
+
+    <div class="news-scroll">
+      <ul class="news-list">
+        {% for news in sorted_news offset: 5 %}
+          <li class="news-item">
+            <span class="news-date">
+              {{ news.date | date: "%b %d, %Y" }}
+            </span>
+
+            <span class="news-badge {% if news.category %}badge-{{ news.category }}{% endif %}">
+              {{ news.category | capitalize }}
+            </span>
+
+            <span class="news-text">
+              {{ news.title }}
+            </span>
+          </li>
+        {% endfor %}
+      </ul>
+    </div>
+
   </div>
 </div>
       </section>
