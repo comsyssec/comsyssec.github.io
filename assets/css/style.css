@@ -841,9 +841,11 @@ main {
   display: flex;
   gap: 16px;
   overflow-x: auto;
-  scroll-snap-type: x mandatory;
+  scroll-snap-type: x proximity;
   padding-bottom: 10px;
+
   scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
 }
 
 .news-slider::-webkit-scrollbar {
@@ -851,13 +853,15 @@ main {
 }
 
 .news-slide {
-  flex: 0 0 100%;
-  scroll-snap-align: start;
+  flex: 0 0 350px;
+  min-height: 140px;
 
   border: 1px solid var(--border);
   border-radius: 12px;
   padding: 18px;
   background: #fff;
+
+  scroll-snap-align: start;
 }
 
 .news-slide-text {
