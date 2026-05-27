@@ -770,3 +770,98 @@ main {
   object-fit: cover;
   border-radius: 12px;
 }
+/* ===== More News Button ===== */
+.news-more-btn {
+  margin-top: 14px;
+  padding: 8px 18px;
+  border: none;
+  border-radius: 8px;
+  background: var(--accent);
+  color: white;
+  font-weight: 700;
+  cursor: pointer;
+  transition: opacity .2s ease;
+}
+
+.news-more-btn:hover {
+  opacity: .9;
+}
+
+/* ===== Modal ===== */
+.news-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: none;
+}
+
+.news-modal.active {
+  display: block;
+}
+
+.news-modal-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,.5);
+}
+
+/* ===== Modal Content ===== */
+.news-modal-content {
+  position: relative;
+  width: min(900px, 92vw);
+  max-height: 85vh;
+  overflow: hidden;
+  margin: 50px auto;
+  background: white;
+  border-radius: 16px;
+  padding: 24px;
+  z-index: 2;
+  box-shadow: 0 10px 30px rgba(0,0,0,.2);
+}
+
+.news-modal-content h3 {
+  margin-top: 0;
+  margin-bottom: 18px;
+}
+
+/* ===== Close Button ===== */
+.news-modal-close {
+  position: absolute;
+  top: 10px;
+  right: 14px;
+  border: none;
+  background: none;
+  font-size: 32px;
+  cursor: pointer;
+  color: #334155;
+}
+
+/* ===== Slider ===== */
+.news-slider {
+  display: flex;
+  gap: 16px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  padding-bottom: 10px;
+  scrollbar-width: none;
+}
+
+.news-slider::-webkit-scrollbar {
+  display: none;
+}
+
+.news-slide {
+  flex: 0 0 100%;
+  scroll-snap-align: start;
+
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 18px;
+  background: #fff;
+}
+
+.news-slide-text {
+  margin-top: 12px;
+  line-height: 1.6;
+  color: #334155;
+}

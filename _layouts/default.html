@@ -7,6 +7,27 @@
   <link rel="icon" type="image/x-icon" href="/assets/images/favicon.ico">
   <link rel="stylesheet" href="/assets/css/style.css">
 </head>
+<script>
+  const newsModal = document.getElementById("newsModal");
+  const openNewsModal = document.getElementById("openNewsModal");
+  const closeNewsModal = document.getElementById("closeNewsModal");
+
+  openNewsModal.addEventListener("click", () => {
+    newsModal.classList.add("active");
+    document.body.style.overflow = "hidden";
+  });
+
+  closeNewsModal.addEventListener("click", () => {
+    newsModal.classList.remove("active");
+    document.body.style.overflow = "";
+  });
+
+  document.querySelector(".news-modal-overlay")
+    .addEventListener("click", () => {
+      newsModal.classList.remove("active");
+      document.body.style.overflow = "";
+    });
+</script>
 <body>
   <header class="site-header">
     <div class="nav-container">
@@ -63,6 +84,36 @@
             </li>
           {% endfor %}
         </ul>
+        <button class="news-more-btn" id="openNewsModal">More News</button>
+
+<!-- News Modal -->
+<div class="news-modal" id="newsModal">
+  <div class="news-modal-overlay"></div>
+
+  <div class="news-modal-content">
+    <button class="news-modal-close" id="closeNewsModal">&times;</button>
+
+    <h3>All News</h3>
+
+    <div class="news-slider" id="newsSlider">
+      {% for news in sorted_news offset: 5 %}
+      <div class="news-slide">
+        <span class="news-date">
+          {{ news.date | date: "%b %d, %Y" }}
+        </span>
+
+        <span class="news-badge {% if news.category %}badge-{{ news.category }}{% endif %}">
+          {{ news.category | capitalize }}
+        </span>
+
+        <div class="news-slide-text">
+          {{ news.title }}
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>
       </section>
     {% endif %}
 
