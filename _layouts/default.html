@@ -8,25 +8,35 @@
   <link rel="stylesheet" href="/assets/css/style.css">
 </head>
 <script>
+document.addEventListener("DOMContentLoaded", () => {
+
   const newsModal = document.getElementById("newsModal");
   const openNewsModal = document.getElementById("openNewsModal");
   const closeNewsModal = document.getElementById("closeNewsModal");
+  const overlay = document.querySelector(".news-modal-overlay");
 
-  openNewsModal.addEventListener("click", () => {
-    newsModal.classList.add("active");
-    document.body.style.overflow = "hidden";
-  });
+  if (openNewsModal) {
+    openNewsModal.addEventListener("click", () => {
+      newsModal.classList.add("active");
+      document.body.style.overflow = "hidden";
+    });
+  }
 
-  closeNewsModal.addEventListener("click", () => {
-    newsModal.classList.remove("active");
-    document.body.style.overflow = "";
-  });
-
-  document.querySelector(".news-modal-overlay")
-    .addEventListener("click", () => {
+  if (closeNewsModal) {
+    closeNewsModal.addEventListener("click", () => {
       newsModal.classList.remove("active");
       document.body.style.overflow = "";
     });
+  }
+
+  if (overlay) {
+    overlay.addEventListener("click", () => {
+      newsModal.classList.remove("active");
+      document.body.style.overflow = "";
+    });
+  }
+
+});
 </script>
 <body>
   <header class="site-header">
