@@ -1,6 +1,6 @@
 ---
 name: Byungrok Kim
-role: re
+role: phd
 position: Researcher
 research: AI Optimization, Deep learning
 photo: /assets/images/people/byungrok.jpg
