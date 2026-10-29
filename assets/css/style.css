@@ -140,11 +140,12 @@ body {
 
 /* 현재 페이지 강조(옵션): 각 페이지에서 body나 main에 data-page 속성을 주고 매칭해도 됨 */
 /* 예: <body data-page="publications"> … */
-body[data-page="people"]        .nav-list a[href="/people"],
-body[data-page="publications"]  .nav-list a[href="/publications"],
-body[data-page="research"]      .nav-list a[href="/research"],
-body[data-page="teaching"]      .nav-list a[href="/teaching"],
-body[data-page="gallery"]       .nav-list a[href="/gallery"] {
+body[data-page="people"] .nav-list a[href="/people"],
+body[data-page="publications"] .nav-list a[href="/publications"],
+body[data-page="research"] .nav-list a[href="/research"],
+body[data-page="teaching"] .nav-list a[href="/teaching"],
+body[data-page="gallery"] .nav-list a[href="/gallery"],
+body[data-page="press"] .nav-list a[href="/press/"] {  
   color: var(--text);
   border-bottom-color: var(--accent);
 }
@@ -853,3 +854,94 @@ main {
   background: #cbd5e1;
   border-radius: 999px;
 }
+
+
+/* —— Press —— */
+.press-section {
+  margin: 0 0 36px;
+}
+
+.press-section-title {
+  font-size: 1.35rem;
+  margin: 0 0 16px;
+  position: relative;
+}
+
+.press-section-title::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  width: 48px;
+  height: 2px;
+  background: var(--accent);
+  border-radius: 2px;
+}
+
+.press-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px;
+  margin-top: 24px;
+}
+
+.press-card {
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  background: #fff;
+  overflow: hidden;
+  transition:
+    box-shadow .2s ease,
+    transform .2s ease,
+    border-color .2s ease;
+}
+
+.press-card:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 8px 22px rgba(15, 23, 42, 0.08);
+  border-color: #dbe4f3;
+}
+
+.press-card-content {
+  padding: 20px;
+}
+
+.press-category {
+  color: var(--accent);
+  font-size: .82rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .5px;
+  margin: 0 0 10px;
+}
+
+.press-title {
+  font-size: 1.15rem;
+  font-weight: 800;
+  line-height: 1.4;
+  margin: 0 0 10px;
+}
+
+.press-date {
+  color: #64748b;
+  font-size: .85rem;
+  margin: 0 0 12px;
+}
+
+.press-excerpt {
+  color: var(--muted);
+  margin: 0;
+  line-height: 1.7;
+}
+
+/* Responsive layout */
+@media (max-width: 640px) {
+  .press-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .press-card-content {
+    padding: 16px;
+  }
+}
+
