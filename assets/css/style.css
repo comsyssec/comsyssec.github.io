@@ -945,3 +945,8 @@ main {
   }
 }
 
+/* Remove underline from Press cards */
+.press-card,
+.press-card:hover {
+  text-decoration: none;
+}
