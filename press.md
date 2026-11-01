@@ -21,10 +21,7 @@ permalink: /press/
         <p class="press-category">Workshop</p>
 
         <h3 class="press-title">
-          <a href="https://m.etnews.com/20261002000045"
-             target="_blank" rel="noopener noreferrer">
             KENTECH Hosts Bitgaram Energy Valley AI and Information Security Workshop
-          </a>
         </h3>
 
         <p class="press-date">October 2, 2026 · Electronic Times</p>
@@ -59,10 +56,7 @@ permalink: /press/
         <p class="press-category">Research Funding</p>
 
         <h3 class="press-title">
-          <a href="https://m.sedaily.com/amparticle/20097229"
-             target="_blank" rel="noopener noreferrer">
-            KENTECH Selected for Major National AI Initiative
-          </a>
+                     KENTECH Selected for Major National AI Initiative
         </h3>
 
         <p class="press-date">Six-year research funding · Seoul Economic Daily</p>
@@ -96,10 +90,7 @@ permalink: /press/
         <p class="press-category">Student Achievement</p>
 
         <h3 class="press-title">
-          <a href="https://www.hankyung.com/article/202605271704h"
-             target="_blank" rel="noopener noreferrer">
-            KENTECH Undergraduate Students Receive Academic Conference Awards
-          </a>
+                      KENTECH Undergraduate Students Receive Academic Conference Awards
         </h3>
 
         <p class="press-date">May 27, 2026 · Hankyung</p>
@@ -133,10 +124,7 @@ permalink: /press/
         <p class="press-category">Workshop</p>
 
         <h3 class="press-title">
-          <a href="https://www.energy-news.co.kr/news/articleView.html?idxno=215513"
-             target="_blank" rel="noopener noreferrer">
             KENTECH Envisions the Future of Energy AI and Security
-          </a>
         </h3>
 
         <p class="press-date">2025 · Energy News</p>
