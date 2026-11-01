@@ -47,45 +47,7 @@ permalink: /press/
       </div>
     </article>
 
-
-    <!-- Post 2: Student awards -->
-    <article class="press-card">
-      <img
-        class="press-card-image"
-        src="/assets/images/press/student-awards-2026.png"
-        alt="Two KENTECH student award recipients"
-        loading="lazy">
-
-      <div class="press-card-content">
-        <p class="press-category">Student Achievement</p>
-
-        <h3 class="press-title">
-          <a href="https://www.hankyung.com/article/202605271704h"
-             target="_blank" rel="noopener noreferrer">
-            KENTECH Undergraduate Students Receive Academic Conference Awards
-          </a>
-        </h3>
-
-        <p class="press-date">May 27, 2026 · Hankyung</p>
-
-        <p class="press-excerpt">
-          Two undergraduate students from our lab, Jang Hyun-gyu
-          and Choi Tae-jun, received awards at ASK 2026 and CISC-S 2026.
-          Their recognized research addressed federated malware
-          detection and AI-based intrusion detection.
-        </p>
-
-        <p class="press-card-meta">
-          <a href="https://www.hankyung.com/article/202605271704h"
-             target="_blank" rel="noopener noreferrer">
-            Read original article ↗
-          </a>
-        </p>
-      </div>
-    </article>
-
-
-    <!-- Post 3: Energy AI research funding -->
+    <!-- Post 2: Energy AI research funding -->
     <article class="press-card">
       <img
         class="press-card-image"
@@ -114,6 +76,43 @@ permalink: /press/
 
         <p class="press-card-meta">
           <a href="https://m.sedaily.com/amparticle/20097229"
+             target="_blank" rel="noopener noreferrer">
+            Read original article ↗
+          </a>
+        </p>
+      </div>
+    </article>
+
+
+    <!-- Post 3: Student awards -->
+    <article class="press-card">
+      <img
+        class="press-card-image"
+        src="/assets/images/press/student-awards-2026.png"
+        alt="Two KENTECH student award recipients"
+        loading="lazy">
+
+      <div class="press-card-content">
+        <p class="press-category">Student Achievement</p>
+
+        <h3 class="press-title">
+          <a href="https://www.hankyung.com/article/202605271704h"
+             target="_blank" rel="noopener noreferrer">
+            KENTECH Undergraduate Students Receive Academic Conference Awards
+          </a>
+        </h3>
+
+        <p class="press-date">May 27, 2026 · Hankyung</p>
+
+        <p class="press-excerpt">
+          Two undergraduate students from our lab, Jang Hyun-gyu
+          and Choi Tae-jun, received awards at ASK 2026 and CISC-S 2026.
+          Their recognized research addressed federated malware
+          detection and AI-based intrusion detection.
+        </p>
+
+        <p class="press-card-meta">
+          <a href="https://www.hankyung.com/article/202605271704h"
              target="_blank" rel="noopener noreferrer">
             Read original article ↗
           </a>
