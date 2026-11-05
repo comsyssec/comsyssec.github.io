@@ -4,36 +4,37 @@ title: Press
 permalink: /press/
 ---
 
-<section class="press-section">
-  <h2 class="press-section-title">Press</h2>
-
-  <div class="press-grid">
-
+    <!-- New Post: KEPCO Basic Research Excellence -->
     <article class="press-card">
-    <img
-    src="/assets/images/press/kepco-basic-research-award.png"
-    alt="KEPCO Basic Research Excellence awards"
-    class="press-card-image"
-  >
-  <div class="press-card-content">
-    <p class="press-category">Research Achievement</p>
-    <h3 class="press-title">
-      KENTECH Selected for Two KEPCO Basic Research Excellence Projects
-    </h3>
-    <p class="press-date">November 5, 2026 · Newsis</p>
-    <p class="press-excerpt">
-      KENTECH was selected for two projects recognized for excellence in
-      KEPCO basic research. The article also reports on awards received
-      by two students.
-    </p>
-    <p class="press-card-meta">
-      <a href="https://mobile.newsis.com/view_amp.html?ar_id=NISX20261105_0003856835"
-         target="_blank" rel="noopener noreferrer">
-        Read Original Article
-      </a>
-    </p>
-  </div>
-</article>
+      <img
+        class="press-card-image"
+        src="/assets/images/press/kepco-basic-research-award.png"
+        alt="KEPCO Basic Research Excellence awards"
+        loading="lazy">
+
+      <div class="press-card-content">
+        <p class="press-category">Research Achievement</p>
+
+        <h3 class="press-title">
+          KENTECH Selected for Two KEPCO Basic Research Excellence Projects
+        </h3>
+
+        <p class="press-date">November 5, 2026 · Newsis</p>
+
+        <p class="press-excerpt">
+          KENTECH was selected for two projects recognized for excellence in
+          KEPCO basic research. The article also reports on awards received
+          by two students.
+        </p>
+
+        <p class="press-card-meta">
+          <a href="https://mobile.newsis.com/view_amp.html?ar_id=NISX20261105_0003856835"
+             target="_blank" rel="noopener noreferrer">
+            Read Original Article ↗
+          </a>
+        </p>
+      </div>
+    </article>
 
     <!-- Post 1: October 2026 workshop -->
     <article class="press-card">
