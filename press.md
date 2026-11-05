@@ -10,6 +10,11 @@ permalink: /press/
   <div class="press-grid">
 
     <article class="press-card">
+    <img
+    src="/assets/images/press/kepco-basic-research-award.png"
+    alt="KEPCO Basic Research Excellence awards"
+    class="press-card-image"
+  >
   <div class="press-card-content">
     <p class="press-category">Research Achievement</p>
     <h3 class="press-title">
