@@ -11,7 +11,7 @@ permalink: /press/
 
     <article class="press-card">
     <img
-    src="/assets/images/press/kepco-basic-research-award.png"
+    src="/assets/images/press/kepco-basic-research-award.jpg"
     alt="KEPCO Basic Research Excellence awards"
     class="press-card-image"
   >
