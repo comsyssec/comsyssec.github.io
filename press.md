@@ -9,6 +9,27 @@ permalink: /press/
 
   <div class="press-grid">
 
+    <article class="press-card">
+  <div class="press-card-content">
+    <p class="press-category">Research Achievement</p>
+    <h3 class="press-title">
+      KENTECH Selected for Two KEPCO Basic Research Excellence Projects
+    </h3>
+    <p class="press-date">November 5, 2026 · Newsis</p>
+    <p class="press-excerpt">
+      KENTECH was selected for two projects recognized for excellence in
+      KEPCO basic research. The article also reports on awards received
+      by two students.
+    </p>
+    <p class="press-card-meta">
+      <a href="https://mobile.newsis.com/view_amp.html?ar_id=NISX20261105_0003856835"
+         target="_blank" rel="noopener noreferrer">
+        Read Original Article
+      </a>
+    </p>
+  </div>
+</article>
+
     <!-- Post 1: October 2026 workshop -->
     <article class="press-card">
       <img
