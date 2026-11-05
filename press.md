@@ -4,6 +4,11 @@ title: Press
 permalink: /press/
 ---
 
+<section class="press-section">
+  <h2 class="press-section-title">Press</h2>
+
+  <div class="press-grid">
+
     <!-- New Post: KEPCO Basic Research Excellence -->
     <article class="press-card">
       <img
