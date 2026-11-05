@@ -950,3 +950,38 @@ main {
 .press-card:hover {
   text-decoration: none;
 }
+
+/* ===== Press Card Layout Fix ===== */
+
+.press-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+  align-items: stretch;
+}
+
+.press-card {
+  min-width: 0;
+  overflow: hidden;
+}
+
+.press-card-image {
+  display: block;
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  object-position: center;
+}
+
+/* Responsive layout */
+@media (max-width: 900px) {
+  .press-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 600px) {
+  .press-grid {
+    grid-template-columns: 1fr;
+  }
+}
