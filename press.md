@@ -9,6 +9,39 @@ permalink: /press/
 
   <div class="press-grid">
 
+    <!-- New Post: KEPCO Invention Technology Innovation Contest -->
+<article class="press-card">
+  <img
+    class="press-card-image"
+    src="/assets/images/press/mk-kepco-invention-award.jpg"
+    alt="KENTECH students receive the Bronze Award at the KEPCO Invention Technology Innovation Contest"
+    loading="lazy">
+
+  <div class="press-card-content">
+    <p class="press-category">Student Achievement</p>
+
+    <h3 class="press-title">
+      KENTECH Undergraduates Win Bronze at KEPCO Invention Technology Innovation Contest
+    </h3>
+
+    <p class="press-date">November 6, 2026 · Maeil Business Newspaper</p>
+
+    <p class="press-excerpt">
+      KENTECH undergraduate students received the Bronze Award at the
+      2026 KEPCO Invention Technology Innovation Contest for developing
+      ModeTrace, a system that analyzes the impact of AI data center
+      GPU workloads on power grid stability.
+    </p>
+
+    <p class="press-card-meta">
+      <a href="https://www.mk.co.kr/news/society/12200416"
+         target="_blank" rel="noopener noreferrer">
+        Read Original Article
+      </a>
+    </p>
+  </div>
+</article>
+
     <!-- New Post: KEPCO Basic Research Excellence -->
     <article class="press-card">
       <img
