@@ -6,5 +6,6 @@ year: 2026
 month: 11
 paper: /assets/publications/KIPS_C2026B0390F.pdf
 type: domestic
+location: Seoul, Korea 
 quality: false
 ---
