@@ -986,37 +986,49 @@ main {
   }
 }
 
-/* ===== Publications and Research Tabs ===== */
+/* ===== Publications Tabs ===== */
 
-.pub-tabs,
-.research-tabs {
+.pub-tabs {
   display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  margin: 20px 0 24px;
+  align-items: stretch;
+  gap: 0;
+  margin: 24px 0 22px;
+  border-bottom: 1px solid var(--border);
 }
 
-.pub-tab,
-.research-tab {
-  border: 1px solid var(--border);
-  background: #fff;
-  color: #334155;
-  border-radius: 999px;
-  padding: 9px 18px;
-  font-weight: 700;
+.pub-tab {
+  appearance: none;
+  border: 1px solid transparent;
+  border-bottom: none;
+  border-radius: 0;
+  background: transparent;
+  color: var(--accent);
+  padding: 9px 20px;
+  margin-bottom: -1px;
+  font-size: 14px;
+  font-weight: 500;
   cursor: pointer;
-  transition: background .2s ease, color .2s ease, border-color .2s ease;
+  transition: background 0.2s ease, color 0.2s ease;
 }
 
-.pub-tab.is-active,
-.research-tab.is-active {
-  background: var(--accent);
-  border-color: var(--accent);
-  color: #fff;
+.pub-tab:hover {
+  background: rgba(0, 0, 0, 0.03);
 }
 
-.pub-panel[hidden],
-.research-panel[hidden] {
+.pub-tab.is-active {
+  background: #fff;
+  color: var(--accent);
+  border: 1px solid var(--border);
+  border-bottom: 1px solid #fff;
+  font-weight: 700;
+}
+
+.pub-tab:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+.pub-panel[hidden] {
   display: none !important;
 }
 
