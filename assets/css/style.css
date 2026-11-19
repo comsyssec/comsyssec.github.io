@@ -985,3 +985,54 @@ main {
     grid-template-columns: 1fr;
   }
 }
+
+/* ===== Publications and Research Tabs ===== */
+
+.pub-tabs,
+.research-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 20px 0 24px;
+}
+
+.pub-tab,
+.research-tab {
+  border: 1px solid var(--border);
+  background: #fff;
+  color: #334155;
+  border-radius: 999px;
+  padding: 9px 18px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background .2s ease, color .2s ease, border-color .2s ease;
+}
+
+.pub-tab.is-active,
+.research-tab.is-active {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #fff;
+}
+
+.pub-panel[hidden],
+.research-panel[hidden] {
+  display: none !important;
+}
+
+/* ===== Gallery Filter and Pagination Fix ===== */
+
+.gallery-card[hidden],
+.gallery-year[hidden] {
+  display: none !important;
+}
+
+.pager .pbtn {
+  cursor: pointer;
+  font: inherit;
+}
+
+.pager .pbtn:disabled {
+  opacity: .45;
+  cursor: not-allowed;
+}

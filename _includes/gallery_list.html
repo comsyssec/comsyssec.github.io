@@ -41,13 +41,15 @@
 
 <ul class="gallery-grid">
   {%- assign prev_year = "" -%}
-  {%- for g in all_items limit: page_size offset: offset -%}
+  {%- for g in all_items -%}
     {%- assign y = g.date | date: "%Y" -%}
     {%- if y != prev_year -%}
-      <li class="gallery-year">{{ y }}</li>
+      <li class="gallery-year" data-year="{{ y }}">{{ y }}</li>
       {%- assign prev_year = y -%}
     {%- endif -%}
-    <li class="gallery-card" data-tags="{{ g.tags | join: ' ' }}">
+    <li class="gallery-card"
+        data-year="{{ y }}"
+        data-tags="{{ g.tags | join: ' ' }}">
       <div class="gslider">
         {%- if g.images -%}
           {%- for img in g.images -%}
@@ -82,19 +84,12 @@
 </ul>
 
 {%- if total_pages > 1 -%}
-<nav class="pager" aria-label="Gallery pagination">
-  {%- assign base = "/gallery" -%}
-  {%- assign first_href = base | append: "/" -%}
-  {%- assign prev_href  = base | append: "/page/" | append: current | minus: 1 | append: "/" -%}
-  {%- assign next_href  = base | append: "/page/" | append: current | plus: 1 | append: "/" -%}
-
-  <a class="pbtn" href="{{ first_href }}" {% if current == 1 %}aria-disabled="true"{% endif %}>&laquo; First</a>
-  <a class="pbtn" href="{% if current == 2 %}{{ first_href }}{% else %}{{ prev_href }}{% endif %}" {% if current == 1 %}aria-disabled="true"{% endif %}>&lsaquo; Prev</a>
-
-  <span class="ppage">Page {{ current }} / {{ total_pages }}</span>
-
-  <a class="pbtn" href="{{ next_href }}" {% if current == total_pages %}aria-disabled="true"{% endif %}>Next &rsaquo;</a>
-  <a class="pbtn" href="{{ base }}/page/{{ total_pages }}/" {% if current == total_pages %}aria-disabled="true"{% endif %}>Last &raquo;</a>
+<nav class="pager" id="gallery-pager" aria-label="Gallery pagination">
+  <button class="pbtn" id="gallery-first" type="button">&laquo; First</button>
+  <button class="pbtn" id="gallery-prev" type="button">&lsaquo; Prev</button>
+  <span class="ppage" id="gallery-page">Page 1 / 1</span>
+  <button class="pbtn" id="gallery-next" type="button">Next &rsaquo;</button>
+  <button class="pbtn" id="gallery-last" type="button">Last &raquo;</button>
 </nav>
 {%- endif -%}
 
@@ -114,7 +109,94 @@
 
 <script>
 document.addEventListener('DOMContentLoaded', function () {
+  // Gallery filters and client-side pagination
+  const cards = Array.from(document.querySelectorAll(".gallery-card"));
+  const yearHeadings = Array.from(document.querySelectorAll(".gallery-year"));
+  const filterButtons = Array.from(document.querySelectorAll(".gfilter"));
 
+  const firstBtn = document.getElementById("gallery-first");
+  const prevBtn = document.getElementById("gallery-prev");
+  const nextBtn = document.getElementById("gallery-next");
+  const lastBtn = document.getElementById("gallery-last");
+  const pageLabel = document.getElementById("gallery-page");
+
+  const pageSize = 10;
+  let activeTag = "*";
+  let currentPage = 1;
+
+  function renderGallery() {
+    const filtered = cards.filter(card => {
+      if (activeTag === "*") return true;
+      const tags = (card.dataset.tags || "").split(/\s+/);
+      return tags.includes(activeTag);
+    });
+
+    const totalPages = Math.max(1, Math.ceil(filtered.length / pageSize));
+    currentPage = Math.min(currentPage, totalPages);
+
+    const start = (currentPage - 1) * pageSize;
+    const visibleCards = filtered.slice(start, start + pageSize);
+    const visibleSet = new Set(visibleCards);
+
+    cards.forEach(card => {
+      card.hidden = !visibleSet.has(card);
+    });
+
+    const visibleYears = new Set(
+      visibleCards.map(card => card.dataset.year)
+    );
+
+    yearHeadings.forEach(heading => {
+      heading.hidden = !visibleYears.has(heading.dataset.year);
+    });
+
+    pageLabel.textContent = `Page ${currentPage} / ${totalPages}`;
+
+    firstBtn.disabled = currentPage === 1;
+    prevBtn.disabled = currentPage === 1;
+    nextBtn.disabled = currentPage === totalPages;
+    lastBtn.disabled = currentPage === totalPages;
+  }
+
+  filterButtons.forEach(button => {
+    button.addEventListener("click", function () {
+      activeTag = this.dataset.tag;
+      currentPage = 1;
+
+      filterButtons.forEach(item => {
+        item.classList.toggle("is-active", item === this);
+      });
+
+      renderGallery();
+    });
+  });
+
+  firstBtn.addEventListener("click", () => {
+    currentPage = 1;
+    renderGallery();
+  });
+
+  prevBtn.addEventListener("click", () => {
+    currentPage--;
+    renderGallery();
+  });
+
+  nextBtn.addEventListener("click", () => {
+    currentPage++;
+    renderGallery();
+  });
+
+  lastBtn.addEventListener("click", () => {
+    const filteredCount = cards.filter(card =>
+      activeTag === "*" ||
+      (card.dataset.tags || "").split(/\s+/).includes(activeTag)
+    ).length;
+
+    currentPage = Math.max(1, Math.ceil(filteredCount / pageSize));
+    renderGallery();
+  });
+
+  renderGallery();
   const lb = document.getElementById('lightbox');
   const lbImg = document.getElementById('lb-img');
   const lbCap = document.getElementById('lb-cap');
