@@ -8,6 +8,6 @@ images:
 - /assets/images/gallery/CISC-W-2025-5.jpg
 - /assets/images/gallery/CISC-W-2025-6.jpg
 date: 2025-12-02
-tags: [Social]
+tags: [Conference]
 caption: "We Attended CISC-W 2025 - Capturing key moments from the event."
 ---
